@@ -464,7 +464,7 @@ function normalizeNonFacetUnit(
     }
 
     if (mark === 'line' || mark === 'area') {
-      const pointOverlay = config[mark].point;
+      const pointOverlay = (config[mark] || {}).point || (encoding.shape && {});
       const lineOverlay = mark === 'area' && config[mark].line;
 
       if (pointOverlay || lineOverlay) {
