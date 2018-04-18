@@ -239,9 +239,15 @@
             },
             {
               "$ref": "#/definitions/MarkProperties"
+            },
+            {
+              "enum": [
+                "transparent"
+              ],
+              "type": "string"
             }
           ],
-          "description": "A flag for overlaying points on top of line or area marks, or an object defining the properties of the overlayed points.\n\n- If this property is an empty object (`{}`) or `true`, filled points with default properties will be used.\n\n- If this property is `false`, no points would be automatically added to line or area marks.\n\n__Default value:__ `false`."
+          "description": "A flag for overlaying points on top of line or area marks, or an object defining the properties of the overlayed points.\n\n- If this property is `\"transparent\"`, transparent points will be used (for enhancing tooltips and selections).\n\n- If this property is an empty object (`{}`) or `true`, filled points with default properties will be used.\n\n- If this property is `false`, no points would be automatically added to line or area marks.\n\n__Default value:__ `false`."
         },
         "radius": {
           "description": "Polar coordinate radial offset, in pixels, of the text label from the origin determined by the `x` and `y` properties.",
@@ -3812,9 +3818,15 @@
             },
             {
               "$ref": "#/definitions/MarkProperties"
+            },
+            {
+              "enum": [
+                "transparent"
+              ],
+              "type": "string"
             }
           ],
-          "description": "A flag for overlaying points on top of line or area marks, or an object defining the properties of the overlayed points.\n\n- If this property is an empty object (`{}`) or `true`, filled points with default properties will be used.\n\n- If this property is `false`, no points would be automatically added to line or area marks.\n\n__Default value:__ `false`."
+          "description": "A flag for overlaying points on top of line or area marks, or an object defining the properties of the overlayed points.\n\n- If this property is `\"transparent\"`, transparent points will be used (for enhancing tooltips and selections).\n\n- If this property is an empty object (`{}`) or `true`, filled points with default properties will be used.\n\n- If this property is `false`, no points would be automatically added to line or area marks.\n\n__Default value:__ `false`."
         },
         "radius": {
           "description": "Polar coordinate radial offset, in pixels, of the text label from the origin determined by the `x` and `y` properties.",
@@ -4400,6 +4412,17 @@
           "description": "The maximum length of the text mark in pixels (default 0, indicating no limit). The text value will be automatically truncated if the rendered size exceeds the limit.",
           "type": "number"
         },
+        "line": {
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "#/definitions/MarkProperties"
+            }
+          ],
+          "description": "A flag for overlaying line on top of area marks, or an object defining the properties of the overlayed lines.\n\n- If this value is an empty object (`{}`) or `true`, lines with default properties will be used.\n\n- If this value is `false`, no lines would be automatically added to area marks.\n\n__Default value:__ `false`."
+        },
         "opacity": {
           "description": "The overall opacity (value between [0,1]).\n\n__Default value:__ `0.7` for non-aggregate plots with `point`, `tick`, `circle`, or `square` marks or layered `bar` charts and `1` otherwise.",
           "maximum": 1,
@@ -4409,6 +4432,23 @@
         "orient": {
           "$ref": "#/definitions/Orient",
           "description": "The orientation of a non-stacked bar, tick, area, and line charts.\nThe value is either horizontal (default) or vertical.\n- For bar, rule and tick, this determines whether the size of the bar and tick\nshould be applied to x or y dimension.\n- For area, this property determines the orient property of the Vega output.\n- For line, this property determines the sort order of the points in the line\nif `config.sortLineBy` is not specified.\nFor stacked charts, this is always determined by the orientation of the stack;\ntherefore explicitly specified value will be ignored."
+        },
+        "point": {
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "#/definitions/MarkProperties"
+            },
+            {
+              "enum": [
+                "transparent"
+              ],
+              "type": "string"
+            }
+          ],
+          "description": "A flag for overlaying points on top of line or area marks, or an object defining the properties of the overlayed points.\n\n- If this property is `\"transparent\"`, transparent points will be used (for enhancing tooltips and selections).\n\n- If this property is an empty object (`{}`) or `true`, filled points with default properties will be used.\n\n- If this property is `false`, no points would be automatically added to line or area marks.\n\n__Default value:__ `false`."
         },
         "radius": {
           "description": "Polar coordinate radial offset, in pixels, of the text label from the origin determined by the `x` and `y` properties.",
